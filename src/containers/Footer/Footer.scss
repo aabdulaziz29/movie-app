@@ -1,0 +1,51 @@
+.footer__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site__footer {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background-color: #16151a;
+  padding: 10px 0;
+
+  p {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #ff5400;
+    }
+  }
+  .footer__left {
+    img {
+      width: 180px;
+      height: 110px;
+    }
+  }
+  .footer__center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tel {
+      p {
+        margin-top: 15px;
+      }
+    }
+  }
+  .footer__right {
+    .networks {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+}
