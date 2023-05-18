@@ -33,6 +33,7 @@ a {
   justify-content: center;
   align-items: center;
   margin-top: 200px;
+  margin-bottom: 300px;
 }
 .loader__wrap {
   position: relative;
@@ -271,4 +272,7 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+.search__list {
+  padding-top: 80px;
 }

@@ -1,10 +1,25 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import "./Header.scss";
 import siteLogo from "../../assets/images/site-logo.png";
 function Header() {
   const [color, setColor] = useState("home");
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (searchValue.length > 0) {
+      navigate(`/search/${searchValue}`);
+    }
+  }, [searchValue]);
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search/${searchValue}`);
+  };
   return (
     <header className="header">
       <div className="container">
@@ -54,8 +69,13 @@ function Header() {
             </ul>
           </nav>
           <div className="header__right">
-            <form>
-              <input type="search" placeholder="Input here..." />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                onChange={handleSearchChange}
+                value={searchValue}
+                placeholder="Input here..."
+              />
               <button type="submit">Search</button>
             </form>
           </div>
