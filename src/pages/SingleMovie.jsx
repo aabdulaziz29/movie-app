@@ -13,7 +13,7 @@ const SingleMovie = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}`, {
         params: {
-          api_key: "4b7feb4a7688c3c46324165839ad0ffd",
+          api_key: "8517584592644709d437159987052f17",
         },
       })
       .then((res) =>

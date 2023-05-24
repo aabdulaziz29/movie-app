@@ -137,17 +137,32 @@ a {
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
 }
+.card img {
+  width: 100%;
+  max-width: 250px;
+}
 .card:hover {
   transform: scale(1.1);
+}
+.card:hover img {
+  opacity: 0.4;
+}
+.card__icon {
+  font-size: 80px;
+  position: absolute;
+  z-index: 111;
+  top: 140px;
+  left: 90px;
+  display: none;
+}
+.card:hover .card__icon {
+  display: block;
 }
 .card:hover .card__content {
   transform: translateY(-60px);
   background-color: #ff5400;
 }
-.card img {
-  width: 100%;
-  max-width: 250px;
-}
+
 .card h2 {
   font-size: 18px;
   font-weight: 600;
@@ -222,7 +237,7 @@ a {
   background-image: url("../images/bg-color.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 740px;
+  height: 667px;
 }
 .home img {
   width: 100%;
@@ -275,4 +290,7 @@ a {
 }
 .search__list {
   padding-top: 80px;
+}
+.notfound {
+  height: 58vh;
 }

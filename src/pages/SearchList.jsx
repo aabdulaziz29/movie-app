@@ -15,7 +15,7 @@ const SearchList = () => {
     axios
       .get(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}`, {
         params: {
-          api_key: "4b7feb4a7688c3c46324165839ad0ffd",
+          api_key: "8517584592644709d437159987052f17",
         },
       })
       .then((res) =>
@@ -50,7 +50,7 @@ const SearchList = () => {
                 />
               ))
             ) : (
-              <h1>Nothing found for your request</h1>
+              <h1 className="notfound">Nothing found for your request</h1>
             )}
           </div>
         ) : (

@@ -1,24 +1,32 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Pagination from "../components/Pagination/Pagination";
 import TvCard from "../components/TvCard/TvCard";
 
 const Tv = () => {
+  const { id } = useParams();
+
+  const [changePage, setChangePage] = useState(parseInt(id) || 1);
   const [tvList, setTvList] = useState({
     isFetched: false,
     data: {},
+    totalPage: 1,
     err: false,
   });
   useEffect(() => {
     axios
       .get(`https://api.themoviedb.org/3/tv/popular`, {
         params: {
-          api_key: "4b7feb4a7688c3c46324165839ad0ffd",
+          api_key: "8517584592644709d437159987052f17",
+          page: changePage,
         },
       })
       .then((res) =>
         setTvList({
           isFetched: true,
           data: res.data,
+          totalPage: res.data.total_pages,
           err: false,
         })
       )
@@ -26,11 +34,17 @@ const Tv = () => {
         setTvList({
           isFetched: true,
           data: [],
+          totalPage: [],
           err: error,
         })
       );
-  }, []);
+  }, [changePage]);
 
+  const handleChanger = (page) => {
+    if (page > 0 && page <= tvList.totalPage) {
+      setChangePage(page);
+    }
+  };
   console.log(tvList);
   return (
     <div>
@@ -48,6 +62,11 @@ const Tv = () => {
               />
             ))}
           </div>
+          <Pagination
+            changePage={changePage}
+            setChangePage={handleChanger}
+            totalPage={tvList.totalPage}
+          />
         </div>
       ) : (
         <div className="loader">

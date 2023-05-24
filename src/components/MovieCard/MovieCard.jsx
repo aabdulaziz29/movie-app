@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 const Card = ({ id, title, imgLink, rating, relaseDate }) => {
   return (
-    <Link to={`/movie/${id}`} className="card">
+    <Link to={`/single-movie/${id}`} className="card">
+      <i class="fa-regular fa-circle-play fa-beat card__icon"></i>
       <div className="card__img">
         <img src={imgLink} alt="Card Img" />
       </div>
